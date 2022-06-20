@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.6.21'
 }
 
 android {
@@ -32,6 +33,8 @@ android {
 }
 
 dependencies {
+    def ktor_version = '1.6.4'
+    def serialization_version = '1.3.0'
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
@@ -40,4 +43,23 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
+
+    //coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2-native-mt"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2-native-mt"
+
+    //ktor
+    implementation "io.ktor:ktor-client-core:$ktor_version"
+    implementation "io.ktor:ktor-client-android:$ktor_version"
+    implementation "io.ktor:ktor-client-cio:$ktor_version"
+    implementation "io.ktor:ktor-client-serialization:$ktor_version"
+    // Logging
+    implementation "io.ktor:ktor-client-logging:$ktor_version"
+
+    implementation "io.ktor:ktor-client-json:$ktor_version"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization_version"
+
 }
